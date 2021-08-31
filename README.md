@@ -98,3 +98,31 @@ gender : text
 
 레이아웃 구상 및 화면 정의서 작성
 
+## 3일차 
+
+index.html -> calendar 드로잉 스크립트 작성
+
+## 4일차 
+
+신규작성
+html
+  board.html 
+  signin.html
+  signup.html
+  view.html
+  write.html
+
+js
+  board.js
+  signin.js
+  signup.js
+  view.js
+  write.js
+css
+  board.css
+  view.css
+  write.css
+
+추가 작성
+index.js
+index.css
