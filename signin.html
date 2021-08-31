@@ -4,28 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ilurwa</title>
-    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="shortcut icon" href="image/icon.png"> 
 </head>
 <body>
     <header>
         <div>
-            <a href = "index.html"><img src = "image/title.png" width="30%"></a>
+            <a href = "index.html"><img src = "image/title.png" width="200px;"></a>
         </div>
-        <div style="margin-bottom: 5%;">
-            <span style="float:right;">SignIN</span>
+        <div style = "margin-bottom: 60px; margin-top: -50px;">
+            <span style="float:right;"><p id="signInBtn"><a href="signin.html">SignIN</a></p><p id="signed"></p><p id = "signOut"><a href="#">SignOut</a></p></span>
         </div>
         <div>
             <h4>
-                <pre><span style="font-size: 1.3rem; color: rgb(160, 160, 160);">일정관리</span><span>    ||    </span><span>자유놀이터</span></pre>
+                <pre><span><a href="index.html" id="ahindex">일정관리</a></span><span>    ||    </span><span><a href="board.html" id="ahboard">자유놀이터</a></span></pre>
             </h4>
         </div>
     </header>
+    <article>
+        <h3>SignIn</h3>
+        <form name="SigninForm">
+            <!-- <label><b>아이디</b>을 입력하세요</label><br> -->
+            <input type="text" id="user_id" placeholder="아이디를 입력하세요."><br><br>
+            <!-- <label for="pw"><b>비밀번호</b>를 입력하세요</label><br> -->
+            <input type="password" id="pw" placeholder="비밀번호를 입력하세요."><br><br>
+            <button type="button" onclick= 'goto_signin()'>SignIn</button>
+            <input type="button" onclick= 'goto_signup()' value="SignUp">
+        </form>
 
+    </article>
     <footer>
         <div style="position: fixed; text-align: center; bottom: 25px; right: 400px; left: 400px;">
             <p>ⓒ2021.hiatus1225@gmail.com all rights reserved</p>
         </div>
     </footer>
 </body>
+<script type="text/javascript" src="js/signin.js"></script>
 </html>

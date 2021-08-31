@@ -19,6 +19,7 @@ th{
 }
 
 td{
+    height: 90px;
     text-align: left;
     vertical-align: top;
 }
@@ -27,8 +28,19 @@ table{
     width: 650px;
     height: 450px;
     margin-left: 120px;
+    table-layout: fixed
 }
 
 h4{
     margin: 0px;
+}
+
+p{
+    margin: 0%;
+    padding: 0%;
+    border: 0px;
+}
+
+article{
+    margin-top: 60px;
 }
