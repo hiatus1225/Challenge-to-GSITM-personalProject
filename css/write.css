@@ -10,41 +10,36 @@ body{
 
 article{
     margin-top: 60px;
+    margin-bottom: 30px;
 }
 
-/* ----------------------------------------- */
-
-th, td{
-    width: 90px;
-}
-
-th{
-    height: 30px;
-    text-align: center;
-    vertical-align: top;
-}
-
-td{
-    height: 90px;
-    text-align: left;
-    vertical-align: top;
-}
 
 table{
     width: 650px;
-    height: 450px;
-    margin-left: 120px;
-    table-layout: fixed
+    table-layout: fixed;
+    text-align: left;
 }
 
-h4{
-    margin: 0px;
+textarea{
+    width: 900px;
+    height: 236px;
+    resize: none;
 }
 
 p{
     margin: 0%;
     padding: 0%;
     border: 0px;
+}
+
+
+#writer{
+    border-style: none;
+    width: 300px;
+}
+
+#title{
+    width: 900px;
 }
 
 #footdiv{

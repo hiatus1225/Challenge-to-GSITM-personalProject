@@ -1,3 +1,19 @@
+var currentSession = JSON.parse(sessionStorage.getItem("__user__"));;
+
+document.addEventListener("DOMContentLoaded",function(){
+	SignedCheck();	
+});
+
+function SignedCheck(){
+	if(sessionStorage.length==0){
+		document.getElementById("ahboard").href = "#";
+		document.getElementById("signOut").hidden=true;
+		return;
+	}
+	document.getElementById("signInBtn").hidden=true;
+	document.getElementById("signed").innerText = currentSession["id"] + " 님 반갑습니다."
+}
+
 function goto_signin() {
     var SigninForm = document.SigninForm;
     var userInfo = JSON.parse(localStorage.getItem("__user__" + SigninForm.user_id.value));
@@ -47,10 +63,13 @@ function goto_signin() {
     }
 }
 
-function checkValidation(){
-//  -------todossssssssssssssssss
-}
+// function checkValidation(){
+/*  -------todo------------
+    코드정리
+*/
+// }
 function goto_signup(){
     location.href="signup.html";
  
 }
+

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ilurwa</title>
-    <link rel="stylesheet" href="css/write.css">
+    <link rel="stylesheet" href="css/view.css">
     <link rel="shortcut icon" href="image/icon.png"> 
 </head>
 <body>
@@ -23,31 +23,32 @@
     </header>
 
     <article>
+        <input type = "hidden" value="" id="contentNo" />
         <table>
             <tr>
-                <td>
-                    <p>제목</p>
-                    <input type="text" id="title" name="title"/>
-                </td>
+              <th>제목</th>
+              <td><p id="title"></p></td>
             </tr>
             <tr>
-                <td>
-                    <p>작성자</p>
-                    <input type="text" id="writer" name="writer" disabled/>
-                </td>
+              <th>작성자</th>
+              <td><p id="writer"></p></td>
             </tr>
             <tr>
-                <td>
-                    <p>내용</p>
-                    <textarea type="text" id="contents" name="contents"></textarea>
-                </td>
+              <th>작성일</th>
+              <td><p id="write_date"></p></td>
             </tr>
-        </table>
-        <div style="width:100%; text-align: right;">
-            <button onclick="window.history.back()">취소</button>
-            <button id = "saveBtn" onclick="save()" hidden = 'false'>저장</button>
-            <button id = "modifyBtn" onclick="modify()" hidden ='true'>수정</button>
-        </div>
+            <tr>
+              <th id = "thContents">내용</th>
+              <td id = "tdContents">
+                <pre id = "contents"></pre>
+              </td>
+            </tr>
+          </table>
+          <div style="width:100%; text-align: right;">
+            <span id = "btnArea">
+            </span>
+          </div>
+          <!-- todo :: Comments -->
     </article>
 
     <footer>
@@ -56,5 +57,5 @@
         </div>
     </footer>
 </body>
-<script tyep="text/javascript" src="js/write.js"></script>
+<script tyep="text/javascript" src="js/view.js"></script>
 </html>

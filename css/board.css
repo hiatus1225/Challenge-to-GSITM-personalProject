@@ -8,14 +8,24 @@ body{
     text-align: center;
 }
 
+#footdiv{
+    position: absolute; 
+    text-align: center; 
+    bottom: 25px; 
+    right: 100px; 
+    left: 100px;
+}
+
 p{
     padding:0px;
     margin: 0px;
-};
+}
+
 th{
     font-size: 16px;
 
-};
+}
+
 tr{
     border-bottom: 1px solid rgb(174, 232, 255);
 }

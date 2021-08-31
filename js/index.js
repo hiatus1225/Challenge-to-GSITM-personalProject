@@ -22,12 +22,17 @@ function SignedCheck(){
 }
 
 function signOut(){
+	if(!confirm("로그아웃 하시겠습니까?")){
+		return;
+	}
 	sessionStorage.clear();
 	location.href="index.html";
 }
 
 function daySelect(id){
-    // alert(id);
+	if (sessionStorage.length==0){
+		return;
+	}
     var message = prompt("메모할 내용을 입력해 주세요.","");
     if(message==null || message=="" || message=="null"){
         document.getElementById(id).innerHTML  = id;
@@ -100,10 +105,15 @@ function printCalendar(){
 
 function monthCheck(noticeDay){
 	var calendar = JSON.parse(localStorage.getItem("_calendar_"+currentSession["id"]+noticeDay));
-	if(month != calendar["month"]){
-		sessionStorage.removeItem("_calendar_"+currentSession["id"]+noticeDay);
-		return true;
+	if(!calendar){
+		return false;
 	}
+	for(let i = localStorage.length; 0<i; i--){
+		if(month != calendar["month"]){
+			sessionStorage.removeItem("_calendar_"+currentSession["id"]+noticeDay);
+		}
+	}
+	return true;
 }
 
 function loadingCalendarID(){
@@ -117,7 +127,7 @@ function loadingCalendarID(){
 			continue;
 		}
 		var i = key.replace("_calendar_"+currentSession["id"],'');
-		if(monthCheck(i)){
+		if(!monthCheck(i)){
 			continue;
 		}
 		var loadingNotice = JSON.parse(localStorage.getItem("_calendar_"+currentSession["id"]+i));

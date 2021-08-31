@@ -1,3 +1,19 @@
+var currentSession = JSON.parse(sessionStorage.getItem("__user__"));;
+
+document.addEventListener("DOMContentLoaded",function(){
+	SignedCheck();	
+});
+
+function SignedCheck(){
+	if(sessionStorage.length==0){
+		document.getElementById("ahboard").href = "#";
+		document.getElementById("signOut").hidden=true;
+		return;
+	}
+	document.getElementById("signInBtn").hidden=true;
+	document.getElementById("signed").innerText = currentSession["id"] + " 님 반갑습니다."
+}
+
 function idcheck() {
 
     var key = Object.keys(localStorage);
@@ -12,13 +28,11 @@ function idcheck() {
     for(let i = 0; i < key.length;i++){
       if (key[i]!=="__user__"){
         if("__user__"+localID === key[i]){
-            // alert("이미 가입된 아이디가 존재합니다.");
           document.getElementById("id").style.backgroundColor="red";
           style="background-color: rgb(162, 255, 162);"
             return;
           }else {
             document.getElementById("id").style.backgroundColor="rgb(162, 255, 162)";
-          // document.getElementById("idcheck").value="확인완료";
         }
       }
     }
@@ -32,13 +46,11 @@ function idcheck() {
     if(pw2===null || pw2===""){document.getElementById("pw2").style.backgroundColor="white";}
 
     if(pw1 != pw2){
-      // alert("비밀번호가 일치하지 않습니다.");
       document.getElementById("pw1").style.backgroundColor="red";
       document.getElementById("pw2").style.backgroundColor="red";
       document.f2.pw2=null;
       return false;
     } else{
-      // alert("비밀번호가 일치합니다.");
       document.getElementById("pw1").style.backgroundColor="rgb(162, 255, 162)";
       document.getElementById("pw2").style.backgroundColor="rgb(162, 255, 162)";
       return true;
@@ -101,4 +113,4 @@ function idcheck() {
 
   }
   
-    localStorage.setItem(document.getElementById('name').value, document.getElementById('name').value);
+    // localStorage.setItem(document.getElementById('name').value, document.getElementById('name').value);
