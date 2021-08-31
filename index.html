@@ -4,23 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ilurwa</title>
-    <link rel="stylesheet" href="css/css.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="shortcut icon" href="image/icon.png"> 
 </head>
 <body>
     <header>
         <div>
-            <a href = "index.html"><img src = "image/title.png" width="30%"></a>
+            <a href = "index.html"><img src = "image/title.png" width="200px;"></a>
         </div>
-        <div style="margin-bottom: 5%;">
+        <div>
             <span style="float:right;">SignIN</span>
         </div>
         <div>
             <h4>
-                <pre><span style="font-size: 1.3rem; color: rgb(160, 160, 160);">일정관리</span><span>    ||    </span><span>자유놀이터</span></pre>
+                <pre><span style="font-size: 1.3rem; color: rgb(160, 160, 160);"><a href="index.html">일정관리</a></span><span>    ||    </span><span><a href="board.html">자유놀이터</a></span></pre>
             </h4>
         </div>
     </header>
+    
+    <section>
+        <table>
+            <thead>
+                <tr>
+                    <th id="sun" style="color: red;">sun</th>
+                    <th id="mon">mon</th>
+                    <th id="tue">tue</th>
+                    <th id="wed">wed</th>
+                    <th id="thu">thu</th>
+                    <th id="fri">fri</th>
+                    <th id="sat" style="color: lightskyblue;">sat</th>
+                </tr>
+            </thead>
+            <tbody id="calendarBoard">
+            </tbody>
+        </table>
+    </section>
 
+    <footer>
+        <div style="position: fixed; text-align: center; bottom: 25px; right: 400px; left: 400px;">
+            <p>ⓒ2021.hiatus1225@gmail.com all rights reserved</p>
+        </div>
+    </footer>
 </body>
-</html>
+<script>
+    
+    function printCalendar(){
+	var date = new Date();  // 데이트 객체 생성
+	var year = date.getFullYear(); // 현재 년도
+	var month = date.getMonth()+1; // 현재 월
+	var today = date.getDate();   // 오늘 날짜
+	var firstDay = new Date(year,month-1,1).getDay(); // 현재 월의 첫째 요일 값 0~6  1
+	var lastDay = new Date(year,month,0).getDate(); // 마지막 날짜
+	var cnt = 0; // 줄바꿈하기 위한 카운트 변수
+	var	addHtml = "";
+	
+	
+	addHtml += "<tr>";
+	for(var i=0;i<firstDay;i++){ // 공백 넣기
+		addHtml += "<td>&nbsp;</td>";
+		cnt++;
+	}	
+	for(var i=1;i<=lastDay;i++){ // 숫자 출력
+		if(cnt==0){ // 일요일이면 빨간색
+			addHtml += "<td style=color:red>";
+            addHtml += i;
+			addHtml += "</td>";
+			cnt++;
+		}else if(cnt==6){ // 토요일이면 파란색
+			addHtml += "<td style=color:blue>";
+            addHtml += i;
+			addHtml += "</td>";
+			cnt++;
+		}else{
+			addHtml += "<td>";
+            addHtml += i;
+			addHtml += "</td>";
+			cnt++;	
+		}		
+		
+		if(cnt%7==0){
+			addHtml += "</tr><tr>"; //줄 바꿈
+			cnt=0;;
+		}
+	}
+	for(var i=0;i<7-cnt;i++){
+        addHtml += "<td>&nbsp;</td>"; // 마지막 날짜 이후의 남은 공백 넣기
+    }
+		
+	addHtml += "</tr>";
+	
+	
+	return addHtml;
+}
+        
+    document.addEventListener("DOMContentLoaded",function(){
+        document.getElementById("calendarBoard").innerHTML = printCalendar();
+        // alert(addhtml);
+    });
+        // alert("todays::"+todays+"||| day::"+day+"||| toMonth::"+toMonth+"||| toYear::"+toYear+"||| today::"+today)
+    </script>
+    </html>
